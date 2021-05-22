@@ -30,10 +30,10 @@ function mining(data, complexity) {
       renderResult(nonce, hash, endTime - startTime);
       clearInterval(timer);
     }
+    renderResult(nonce, hash);
     nonce++;
     hash = CryptoJS.SHA256(data + nonce).toString();
     isMineDone = hash.startsWith("0".repeat(complexity));
-    renderResult(nonce, hash);
   }, 0);
 }
 
