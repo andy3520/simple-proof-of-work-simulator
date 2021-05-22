@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  </head>
+  <body>
+    <h1>Simple crypto mining simulator</h1>
+    <p>
+      <b>sha256(data, complexity) = (hash, nonce)</b>
+    </p>
+    <p>
+      goal: calculate which <b>nonce</b> can be combine with the <b>data</b> and
+      pass through encrypt function could return the hash start with a certain
+      number of <b>zero</b> equal with the <b>complexity</b>
+    </p>
+
+    <p>
+      this simple algorithm start with <b>none = 0</b> then <b>increase</b> it
+      by <b>1</b> until we got the valid hash
+    </p>
+    <fieldset>
+      <legend>DATA</legend>
+      <input id="data" placeholder="data" type="text" value="andy" />
+    </fieldset>
+
+    <fieldset>
+      <legend>COMPLEXITY</legend>
+      <input id="complexity" type="number" value="1" />
+      <button id="start">Start mining</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>RESULT</legend>
+      <p>HASH: <span id="hash"></span></p>
+      <p>NONCE: <span id="nonce"></span></p>
+      <p>TIME: <span id="time"></span></p>
+    </fieldset>
+    <script src="index.js"></script>
+  </body>
+</html>
