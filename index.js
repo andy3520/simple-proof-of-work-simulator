@@ -1,19 +1,13 @@
 let startButton = document.getElementById("start");
 startButton.onclick = () => {
   startButton.disabled = true;
-  startButton.innerText = "Mining...";
+  startButton.textContent = "Mining...";
   start();
-  startButton.disabled = false;
-  startButton.innerText = "Start mining";
 };
 
 function start() {
   let data = getData("data");
   let complexity = getData("complexity");
-  console.table({
-    complexity,
-    data,
-  });
   mining(data, +complexity);
 }
 
@@ -28,6 +22,8 @@ function mining(data, complexity) {
     if (isMineDone) {
       const endTime = Date.now();
       renderResult(nonce, hash, endTime - startTime);
+      startButton.textContent = "Start mining";
+      startButton.disabled = false;
       clearInterval(timer);
     }
     renderResult(nonce, hash);
